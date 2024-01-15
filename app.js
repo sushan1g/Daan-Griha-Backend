@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import  bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import router from './router/authRouter.js';
+const server = express();
 
 
 const DB = 'mongodb+srv://shreeshaaatreya1:IEbwYGMsEKUe811S@cluster0.ifiyo49.mongodb.net/Daan-Griha?retryWrites=true&w=majority';
@@ -21,11 +23,11 @@ const middleware = (req,res,next) => {
     next();
 }
 
-
-const server = express();
- 
 server.use(cors());
 server.use(bodyParser.json());
+
+
+
 
 server.get('/demo',middleware,
 (req,res) => {
@@ -33,7 +35,9 @@ server.get('/demo',middleware,
     res.send('hello World');
 });
 
-server.post('/signup',
+
+
+server.get('/signup',
 (req,res) => {
     console.log(req.body)
     res.send('Signup Connected');
@@ -51,6 +55,10 @@ server.post('/contact' , (req,res) => {
 server.post('/reset' ,(req,res) => {
     res.send ('Reset page')
 });
+
+//api
+server.use('/auth' , router);
+
 
 
 server.listen(8080,() => {
