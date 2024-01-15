@@ -3,19 +3,20 @@ import cors from 'cors';
 import  bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
+
 const DB = 'mongodb+srv://shreeshaaatreya1:IEbwYGMsEKUe811S@cluster0.ifiyo49.mongodb.net/Daan-Griha?retryWrites=true&w=majority';
 
 mongoose.connect(DB,{
-    useNewUrlparser:true,
-    useCreateIndex: true,
+    useNewUrlParser:true,
+    // useCreateIndex: true,
     useUnifiedTopology: true,
-    useFindAndModify: false
+    // useFindAndModify: false
 }).then(() =>{
     console.log('Connection successful');
-}).catch((err) => console.log('Connection failed'));
+}).catch((err) => console.log('Connection failed',err));
 
 //Middleware
-const Middleware = (req,res,next) => {
+const middleware = (req,res,next) => {
     console.log("Hello Middleware");
     next();
 }
@@ -26,7 +27,7 @@ const server = express();
 server.use(cors());
 server.use(bodyParser.json());
 
-server.get('/demo',
+server.get('/demo',middleware,
 (req,res) => {
     console.log(req.body)
     res.send('hello World');
