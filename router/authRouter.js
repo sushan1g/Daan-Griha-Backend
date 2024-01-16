@@ -1,45 +1,29 @@
 import express from 'express';
+// const home = require('../controllers/authControllers');
+import home from '../controllers/authControllers.js';
+import signup from '../controllers/authControllers.js';
+import login from '../controllers/authControllers.js'; 
+import reset from '../controllers/authControllers.js';
+import contact from '../controllers/authControllers.js';
+import about  from '../controllers/authControllers.js';
 
 const router = express.Router();
 
 
-router.route('/').get(
-    (req,res) => {
-        console.log(req.body)
-        res.status(200).send('Home page using router');
-    });
 
+router.route('/').get(home);
 
-router.route('/signup').get(
-(req,res) => {
-    console.log(req.body)
-    res.status(200).send('Signup Connected using router');
-});
+router.route('/home').get(home);
 
-router.route('/login').get(
-    (req,res) => {
-        console.log(req.body)
-        res.status(200).send('Login Connected using router');
-    });
- router.route('/reset').get(
-        (req,res) => {
-            console.log(req.body)
-            res.status(200).send('Reset page using router');
-        });
+router.route('/signup').get(signup);
 
- router.route('/about').get(
-      (req,res) => {
-         console.log(req.body)
-          res.status(200).send('About page using router');
-      });
+router.route('/login').get(login);
 
+router.route('/reset').get(reset);
 
- router.route('/contact').get(
-    (req,res) => {
-         console.log(req.body)
-         res.status(200).send('Contact page  Using Router ');
-      });
+router.route('/contact').get(contact);
 
+router.route('/about').get(about);
 
 
 

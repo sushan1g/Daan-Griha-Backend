@@ -29,33 +29,6 @@ server.use(bodyParser.json());
 
 
 
-server.get('/demo',middleware,
-(req,res) => {
-    console.log(req.body)
-    res.send('hello World');
-});
-
-
-
-server.get('/signup',
-(req,res) => {
-    console.log(req.body)
-    res.send('Signup Connected');
-});
-server.post('/login',(req,res) => {
-    console.log(req.body)
-    res.send('Login Connected');
-});
-server.post('/about',(req,res) => {
-    res.send('About Page')
-});
-server.post('/contact' , (req,res) => {
-    res.send('Contact page')
-});
-server.post('/reset' ,(req,res) => {
-    res.send ('Reset page')
-});
-
 //api
 server.use('/auth' , router);
 
