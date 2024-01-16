@@ -30,7 +30,7 @@ server.use(bodyParser.json());
 
 
 //api
-server.use('/auth' , router);
+server.use('/api/user' , router);
 
 
 

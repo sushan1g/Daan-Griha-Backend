@@ -1,29 +1,29 @@
 import express from 'express';
-// const home = require('../controllers/authControllers');
-import home from '../controllers/authControllers.js';
-import signup from '../controllers/authControllers.js';
-import login from '../controllers/authControllers.js'; 
-import reset from '../controllers/authControllers.js';
-import contact from '../controllers/authControllers.js';
-import about  from '../controllers/authControllers.js';
+
+import home from '../controllers/homecontroller.js';
+import signup from '../controllers/userController/signupcontroller.js';
+import login from '../controllers/userController/logincontroller.js'; 
+import reset from '../controllers/userController/resetcontroller.js';
+import contact from '../controllers/userController/contactcontroller.js';
+import about  from '../controllers/userController/aboutcontroller.js';
 
 const router = express.Router();
 
 
 
-router.route('/').get(home);
+router.get('/',home);
 
-router.route('/home').get(home);
+router.get("/home",home);
 
-router.route('/signup').get(signup);
+router.get('/signup',signup);
 
-router.route('/login').get(login);
+router.get('/login',login);
 
-router.route('/reset').get(reset);
+router.get('/reset',reset);
 
-router.route('/contact').get(contact);
+router.get('/contact',contact);
 
-router.route('/about').get(about);
+router.get('/about',about);
 
 
 
